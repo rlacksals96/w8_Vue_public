@@ -27,26 +27,33 @@ export default {
     },
     actions:{
         async searchMovies({ commit }, payload){
-            const API_KEY = '7035c60c'
-            const { title, page } = payload
-            const data = await fetch(`https://www.omdbapi.com?apikey=${API_KEY}&s=${title}&page=${page}`,{
-                method: 'GET',
-            }).then(res => res.json())
+            const data = await _request(payload)
             commit('assignState', data)
         },
         async detailMovie({ commit }, payload){
             // loading 때 사용해보자. 여기다 commit('ToggleModal') 작성하면 현재 단계에서는 최초에 
             // 포스터에 대한 정보가 없어 에러가 발생함
-            const API_KEY = '7035c60c'
-            const { movieId } = payload
-            const data = await fetch(`https://www.omdbapi.com?apikey=${API_KEY}&i=${movieId}&plot=full`,{
-                method: 'GET',
-            }).then(res => res.json())
+            const data = await _request(payload)
             commit('ResizingImg', data)
             const selectedMovie = { selectedMovie: {...data}}
             commit('assignState', selectedMovie)
             commit('ToggleModal')
-            
         }
     }
+}
+
+async function _request(options){
+    const { movieId, title, page=1 } = options
+    const API_KEY = '7035c60c'
+    if (title && !movieId){
+        return await fetch(`https://www.omdbapi.com?apikey=${API_KEY}&s=${title}&page=${page}`,{
+                method: 'GET',
+        }).then(res => res.json())
+    }
+    if (!title && movieId){
+        return await fetch(`https://www.omdbapi.com?apikey=${API_KEY}&i=${movieId}&plot=full`,{
+                method: 'GET',
+        }).then(res => res.json())
+    }
+
 }
