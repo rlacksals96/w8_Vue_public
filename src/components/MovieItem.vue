@@ -91,7 +91,9 @@ export default {
   .movie-title {
     margin: 5px 0 5px 0;
     width: 185px;
-    overflow: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .movie-year,
