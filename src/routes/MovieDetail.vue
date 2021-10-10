@@ -17,7 +17,9 @@
         <div v-else-if="name==='Ratings'">
           <span style="font-weight: bold">Ratings</span>
           <div class="ratings">
-            <div v-for="rating of value">
+            <div
+              v-for="rating of value"
+              :key="rating">
               <div class="ratings__detail">
                 <span style="font-weight: bold">{{ rating.Source }}: </span>
                 <span>{{ rating.Value }}</span>
