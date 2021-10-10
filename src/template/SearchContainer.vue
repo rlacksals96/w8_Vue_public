@@ -1,6 +1,6 @@
 <template>
   <SearchBar class="search-bar" />
-  <div v-if="!$store.state.movie.isInitialize">
+  <div v-if="!$store.state.movie.isReady">
     <div id="notice-result">
       Search movie to watch
     </div>

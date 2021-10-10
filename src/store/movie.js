@@ -37,7 +37,7 @@ export default {
       const detail=await fetch(`${API_END_POINT}?apiKey=${apiKey}&i=${imdbID}&plot=full/`,{
         method:'GET'
       }).then(res=>res.json())
-      console.log(detail)
+      // console.log(detail)
       commit('assignState',{detail})
 
 
@@ -48,10 +48,10 @@ export default {
       commit('assignState',{
         title,
         year,
-        isInitialize:true
+        isReady:true
       })
       const {apiKey,page}=this.state.movie
-      console.log(`${API_END_POINT}?apikey=${apiKey}&s=${this.state.movie.title}&page=${page}&year=${this.state.movie.year}/`)
+      // console.log(`${API_END_POINT}?apikey=${apiKey}&s=${this.state.movie.title}&page=${page}&year=${this.state.movie.year}/`)
       const movieList=await fetch(`${API_END_POINT}?apikey=${apiKey}&s=${this.state.movie.title}&page=${page}&year=${this.state.movie.year}/`,{
         method:'GET',
 
@@ -64,7 +64,7 @@ export default {
       }else{
         console.log('not found')
         commit('assignState',{
-          isInitialize:false
+          isReady:false
         })
       }
 
