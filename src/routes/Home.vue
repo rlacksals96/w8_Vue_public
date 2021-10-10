@@ -3,7 +3,7 @@
   <RouterView />
 </template>
 <script>
-import SearchContainer from '~/template/SearchContainer'
+import SearchContainer from '~/container/SearchContainer'
 export default {
   components:{
     SearchContainer

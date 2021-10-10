@@ -1,9 +1,16 @@
 <template>
   <li class="movie-item">
     <div class="movie-poster">
+      <div class="txt-detail">More </div>
       <img
         :src="`${movie.Poster}`"
-        alt="poster" />
+        alt="poster"
+        @click="$router.push({
+          name:'movieDetail',
+          params:{
+            imdbID:movie.imdbID
+          }
+        })" />
     </div>
 
     <h3 class="movie-title">
@@ -46,12 +53,31 @@ export default {
   width: 200px;
   height: 350px;
   .movie-poster {
+    position: relative;
     width: 185px;
     height: 260px;
     border: 5px solid black;
+    .txt-detail{
+      position: absolute;
+      line-height: 260px;
+      left: 68px;
+      visibility: hidden;
+      font-size: 20px;
+
+
+    }
+    &:hover{
+      cursor: pointer;
+      filter: brightness(0.5);
+      & .txt-detail{
+        color: white;
+        visibility: visible;
+      }
+    }
     & > img{
       width: 185px;
       height: 260px;
+
     }
   }
 

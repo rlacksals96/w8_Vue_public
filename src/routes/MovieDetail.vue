@@ -92,7 +92,6 @@ export default {
     detailIndex.forEach(idx=>{
       this.$data[idx]=detail[idx]
     })
-    console.log(this.$data)
 
 
   },
@@ -100,7 +99,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .button-prev{
-  position: absolute;
+  position: fixed;
   top: 20px;
   left: 20px;
   padding: 10px;
