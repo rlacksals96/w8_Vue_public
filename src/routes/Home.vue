@@ -4,8 +4,9 @@
 </template>
 <script>
 import SearchContainer from '~/container/SearchContainer'
+
 export default {
-  components:{
+  components: {
     SearchContainer
   }
 }

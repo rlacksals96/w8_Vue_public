@@ -46,51 +46,51 @@
 </template>
 <script>
 export default {
-  data(){
-    return{
-      Title:'',
-      Year:'',
-      Rated:'',
-      Released:'',
-      Runtime:'',
-      Genre:'',
-      Director:'',
-      Writer:'',
-      Actors:'',
-      Plot:'',
-      Language:'',
-      Country:'',
-      Awards:'',
-      Poster:'',
-      Ratings:[],
-      Metascore:'',
-      imdbRating:'',
-      imdbVotes:'',
-      Type:'',
-      DVD:'',
-      BoxOffice:'',
-      Production:'',
-      Website:'',
+  data() {
+    return {
+      Title: '',
+      Year: '',
+      Rated: '',
+      Released: '',
+      Runtime: '',
+      Genre: '',
+      Director: '',
+      Writer: '',
+      Actors: '',
+      Plot: '',
+      Language: '',
+      Country: '',
+      Awards: '',
+      Poster: '',
+      Ratings: [],
+      Metascore: '',
+      imdbRating: '',
+      imdbVotes: '',
+      Type: '',
+      DVD: '',
+      BoxOffice: '',
+      Production: '',
+      Website: '',
 
     }
   },
 
 
-  async created(){
-    await this.$store.dispatch('movie/searchMovieDetail',{
-      imdbID:this.$route.params.imdbID
+  async created() {
+    await this.$store.dispatch('movie/searchMovieDetail', {
+      imdbID: this.$route.params.imdbID
     })
-    const detail=this.$store.state.movie.detail
-    const detailIndex=[
-      'Title','Year','Rated','Released','Runtime',
-      'Genre','Director', 'Writer','Actors','Plot',
-      'Language','Country','Awards','Poster','Ratings',
-      'Metascore','imdbRating','imdbVotes','Type','DVD',
-      'BoxOffice','Production','Website'
+    const detail = this.$store.state.movie.detail
+    const detailIndex = [
+      'Title', 'Year', 'Rated', 'Released', 'Runtime',
+      'Genre', 'Director', 'Writer', 'Actors', 'Plot',
+      'Language', 'Country', 'Awards', 'Poster', 'Ratings',
+      'Metascore', 'imdbRating', 'imdbVotes', 'Type', 'DVD',
+      'BoxOffice', 'Production', 'Website'
     ]
 
-    detailIndex.forEach(idx=>{
-      this.$data[idx]=detail[idx]
+    detailIndex.forEach(idx => {
+      this.$data[idx] = detail[idx]
     })
 
 
@@ -98,7 +98,7 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-.button-prev{
+.button-prev {
   position: fixed;
   top: 20px;
   left: 20px;
@@ -108,41 +108,48 @@ export default {
   font-size: 30px;
 
   border-radius: 15px;
-  &:hover{
-    cursor:pointer;
+
+  &:hover {
+    cursor: pointer;
     background-color: white;
     color: black;
   }
 }
-.movie{
+
+.movie {
   display: flex;
   margin-right: 200px;
   margin-left: 200px;
-  &-title{
+
+  &-title {
     position: relative;
     left: 150px;
     font-weight: bold;
     font-size: 50px;
     padding-bottom: 30px;
   }
-  &-meta{
+
+  &-meta {
     flex-basis: 400px;
     flex-shrink: 0;
     padding-right: 10px;
     font-size: 20px;
-    &__attribute{
+
+    &__attribute {
       font-weight: bold;
       font-size: 20px;
-      padding:10px 10px 10px 0;
+      padding: 10px 10px 10px 0;
     }
-    &__plot{
+
+    &__plot {
       position: absolute;
       top: 1200px;
       width: 950px;
       padding-bottom: 100px;
     }
   }
-  &-poster{
+
+  &-poster {
     flex-basis: 300px;
     flex-shrink: 0;
     padding-left: 200px;
@@ -152,7 +159,7 @@ export default {
 
 }
 
-.ratings{
+.ratings {
   margin: 10px 20px;
   padding: 20px;
   border-radius: 10px;

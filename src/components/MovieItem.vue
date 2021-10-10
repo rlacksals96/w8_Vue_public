@@ -1,7 +1,9 @@
 <template>
   <li class="movie-item">
     <div class="movie-poster">
-      <div class="txt-detail">More </div>
+      <div class="txt-detail">
+        More
+      </div>
       <img
         :src="`${movie.Poster}`"
         alt="poster"
@@ -52,12 +54,14 @@ export default {
   margin: 10px 10px 100px 10px;
   width: 200px;
   height: 350px;
+
   .movie-poster {
     position: relative;
     width: 185px;
     height: 260px;
     border: 5px solid black;
-    .txt-detail{
+
+    .txt-detail {
       position: absolute;
       line-height: 260px;
       left: 68px;
@@ -66,15 +70,18 @@ export default {
 
 
     }
-    &:hover{
+
+    &:hover {
       cursor: pointer;
       filter: brightness(0.5);
-      & .txt-detail{
+
+      & .txt-detail {
         color: white;
         visibility: visible;
       }
     }
-    & > img{
+
+    & > img {
       width: 185px;
       height: 260px;
 

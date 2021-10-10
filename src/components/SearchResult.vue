@@ -15,36 +15,40 @@
 <script>
 import MovieItem from '~/components/MovieItem'
 import PageStatus from '~/components/PageStatus'
+
 export default {
   components: {
     PageStatus,
     MovieItem
   },
 
-  computed:{
-    movieList(){
+  computed: {
+    movieList() {
       return this.$store.state.movie.movieList
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.movie-items{
+.movie-items {
   display: grid;
   position: relative;
-  grid-template-columns: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
 
 }
-.status{
+
+.status {
   display: flex;
   margin-left: 30px;
   margin-right: 30px;
   justify-content: space-between;
   position: relative;
-  &__page{
+
+  &__page {
     font-size: 30px;
   }
-  &__found{
+
+  &__found {
     font-size: 30px;
   }
 }

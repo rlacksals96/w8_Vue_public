@@ -9,15 +9,15 @@
 </template>
 <script>
 export default {
-  computed:{
-    totalResult(){
+  computed: {
+    totalResult() {
       return this.$store.state.movie.movieList.totalResults
     },
-    currentPage(){
+    currentPage() {
       return this.$store.state.movie.page
     },
-    totalPages(){
-      return parseInt(this.totalResult/10)+1
+    totalPages() {
+      return parseInt(this.totalResult / 10) + 1
     },
   }
 }

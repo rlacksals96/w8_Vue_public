@@ -27,7 +27,7 @@ export default {
       this.$store.dispatch('movie/searchMovies', {
         title: this.title
       })
-      this.$store.commit('movie/setMovieTitle',this.title)
+      this.$store.commit('movie/setMovieTitle', this.title)
     }
   }
 }
@@ -35,20 +35,22 @@ export default {
 <style lang="scss" scoped>
 @import '~/scss/_button.scss';
 
-  .search-bar{
-    margin-bottom: 100px;
-    &__input{
-      width: 500px;
-      height: 50px;
-      font-size: 30px;
-      border-radius: 5px;
-    }
-    &__search-button{
-      width: 80px;
-      height: 55px;
-      font-size: 20px;
-      @include red-button;
-    }
+.search-bar {
+  margin-bottom: 100px;
+
+  &__input {
+    width: 500px;
+    height: 50px;
+    font-size: 30px;
+    border-radius: 5px;
   }
+
+  &__search-button {
+    width: 80px;
+    height: 55px;
+    font-size: 20px;
+    @include red-button;
+  }
+}
 
 </style>

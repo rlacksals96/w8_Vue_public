@@ -15,48 +15,51 @@
 </template>
 <script>
 import PageStatus from '~/components/PageStatus'
+
 export default {
-  components:{
+  components: {
     PageStatus
   },
-  computed:{
-    totalResult(){
+  computed: {
+    totalResult() {
       return this.$store.state.movie.movieList.totalResults
     },
-    currentPage(){
+    currentPage() {
       return this.$store.state.movie.page
     },
-    movieTitle(){
+    movieTitle() {
       return this.$store.state.movie.title
     },
 
   },
-  
-  methods:{
+
+  methods: {
     async moveToPrevPage() {
       this.$store.commit('movie/moveToPrev')
-      await this.$store.dispatch('movie/searchMovies',{
-        title:this.movieTitle
+      await this.$store.dispatch('movie/searchMovies', {
+        title: this.movieTitle
       })
     },
     async moveToNextPage() {
       this.$store.commit('movie/moveToNext')
-      await this.$store.dispatch('movie/searchMovies',{
-        title:this.movieTitle
+      await this.$store.dispatch('movie/searchMovies', {
+        title: this.movieTitle
       })
     }
   }
 }
 </script>
 <style lang="scss" scoped>
-.page-status{
+.page-status {
   text-align: center;
   font-size: 25px;
 }
-.page-navigation{
+
+.page-navigation {
   display: flex;
   justify-content: center;
-  & > button{
+
+  & > button {
     margin: 20px;
     padding: 10px 20px 10px 20px;
     font-size: 25px;
